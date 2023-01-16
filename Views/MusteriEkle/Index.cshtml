@@ -1,0 +1,63 @@
+﻿@using AracKiralama_MVC.Models.Entity
+
+
+@model List<Musteri_Ekle>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+
+<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Müşteri ID</th>
+            <th>TC</th>
+            <th>Ad Soyad</th>
+            <th>Telefon</th>
+            <th>Adres</th>
+            <th>Mail</th>
+            <th>Doğum Tarihi</th>
+            <th>Doğum Yeri</th>
+            <th>Ehliyet No</th>
+            <th>Alış Tarihi</th>
+            <th>Alış Yeri</th>
+            <th>Ehliyet Geçerlilik Tarihi</th>
+            <th>Kredi Kart No</th>
+            <th>Geçerlilik Tarihi</th>
+            <th>CVV</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Musteri_ID</td>
+                <td>@item.TC</td>
+                <td>@item.AdSoyad</td>
+                <td>@item.Telefon</td>
+                <td>@item.Adres</td>
+                <td>@item.Mail</td>
+                <td>@item.DogumTarihi</td>
+                <td>@item.DogumYeri</td>
+                <td>@item.EhliyetNo</td>
+                <td>@item.AlisTarihi</td>
+                <td>@item.AlisYeri</td>
+                <td>@item.EhGecerlilikTarihi</td>
+                <td>@item.KrediKartNo</td>
+                <td>@item.GecerlilikTarihi</td>
+                <td>@item.CVV</td>
+                <td><a href="~/MusteriEkle/MusteriGetir/@item.Musteri_ID" class="btn btn-success">Güncelle</a></td>
+                <td><a href="~/MusteriEkle/Sil/@item.Musteri_ID" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div style="margin-top:25px">
+    <button style="width: 120px; height: 30px;" class="btn btn-success"><a style="color:white; font-size:15px;" href="~/MusteriEkle/MusteriEkle">Yeni Müşteri Ekle</a></button><div />
+
+
+
+

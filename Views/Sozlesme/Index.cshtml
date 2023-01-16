@@ -1,0 +1,54 @@
+﻿@using AracKiralama_MVC.Models.Entity
+
+
+@model List<Sozlesme_Ekle>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+
+<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+    <!-- Export to PDF , Excel ve Listeleme -->
+    <thead>
+        <tr>
+            <th>Sözleşme ID </th>
+            <th>Müşteri TC</th>
+            <th>Plaka</th>
+            <th>Günlük Kira Ücreti</th>
+            <th>Alış Tarihi</th>
+            <th>Veriş Tarihi</th>
+            <th>Ödenecek Fiyat</th>
+            <th>Personel ID</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Sozlesme_ID</td>
+                <td>@item.Musteri_Ekle.AdSoyad</td>
+                <td>@item.Arac_Kayit.Plaka</td>
+                <td>@item.Arac_Kayit.Gunluk_Kira_Ucreti</td>
+                <td>@item.Alis_Tarihi</td>
+                <td>@item.VerisTarihi</td>
+                <td>@item.Odenecek_Fiyat</td>
+                <td>@item.Personel_Ekle.AdSoyad</td>
+                <td><a href="~/Sozlesme/SozlesmeGetir/@item.Sozlesme_ID" class="btn btn-success">Güncelle</a></td>
+                <td><a href="~/Sozlesme/Sil/@item.Sozlesme_ID" class="btn btn-danger">Sil</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<script>
+    function hesaplama() {
+        var tarih = model.VerisTarihi - Alis_Tarihi;
+        var hesap = tarih * Arac_Kayit.Gunluk_Kira_Ucreti;
+        Odenecek_Fiyat = hesap;
+    }
+</script>
+<div style="margin-top:25px">
+    <button style="width: 150px; height: 30px;" class="btn btn-success"><a style="color:white; font-size:15px;" href="~/Sozlesme/SozlesmeEkle">Yeni Sözleşme Ekle</a></button><div />
+

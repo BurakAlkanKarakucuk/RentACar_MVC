@@ -1,0 +1,87 @@
+﻿@using AracKiralama_MVC.Models.Entity
+@model AracKiralama_MVC.Models.Entity.Sozlesme_Ekle
+@{
+    ViewBag.Title = "SozlesmeEkle";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>TC</label>
+        @Html.DropDownListFor(k => k.Musteri_ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control", @Required = " ", @id = "a", @style = "width:160px" })
+        <br />
+        <label>Plaka</label>
+        @Html.DropDownList("Arac_Id", (List<SelectListItem>)ViewBag.dgr1, htmlAttributes: new { @class = "form-control", @Required = " ", @id = "b", @style = "width:160px" })
+        <br />
+        <label>Ücret</label>
+        @Html.DropDownList("Odenecek_Fiyat", (List<SelectListItem>)ViewBag.dgr3, htmlAttributes: new { @class = "form-control", @Required = " ", @id = "c", @style = "width:160px" })
+        <br />
+        <label>Alış Tarihi</label>
+        <input type="date" class="form-control" id="date1" onchange="calculateDiff()" name="Alis_Tarihi" maxlength="10" Required=" " style="width:160px" />
+        <br />
+        <label>Veriş Tarihi</label>
+        <input type="date" class="form-control" id="date2" onchange="calculateDiff()" name="VerisTarihi" Required=" " maxlength="10" style="width:160px" />
+        <br />
+        <label>Ödenecek Fiyat</label>
+        <input type="text" class="form-control" id="Odenecek_Fiyat" name="Odenecek_Fiyat" Required=" " maxlength="15" style="width:160px" />
+        <br />
+        <label>Personel</label>
+        @Html.DropDownListFor(k => k.Personel_ID, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control", @Required = " ", @id = "d", @style = "width:160px" })
+        <br />
+    </div>
+    <div style="margin-top:25px">
+        <button class="btn btn-success">Yeni Sözleşme Ekle</button>
+    </div>
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+
+    <script>
+        document.getElementById("a").selectedIndex = -1;
+        document.getElementById("b").selectedIndex = -1;
+        document.getElementById("c").selectedIndex = -1;
+    </script>
+    <script>
+        $(function () {
+            $('#b').change(function () {
+                var id = $('#b').val();
+                $.ajax({
+                    url: '/Sozlesme/UcretGetir',
+                    data: { p: id },
+                    type: "POST",
+                    dataType: "Json",
+                    success: function (data) {
+                        console.log(data);
+                        $('#c').empty();
+                        for (var i = 0; i < data.length; i++) {
+                            $('#c').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                        }
+                    }
+                });
+            });
+        });
+        function calculateDiff() {
+            // Tarihleri alın
+            var date1 = new Date(document.getElementById("date1").value);
+            var date2 = new Date(document.getElementById("date2").value);
+            var factor = document.getElementById("c").textContent;
+            // Tarihleri milisaniye cinsinden karşılaştırın ve farkı bulun
+            var diff = date2.getTime() - date1.getTime();
+            
+          
+            // Farkı gün cinsinden hesaplayın
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            num1 = parseFloat(days);
+            num2 = parseFloat(factor);
+            let result = num1 * num2;
+            // Farkı inputa yazın
+            document.getElementById("Odenecek_Fiyat").value = result;
+        }
+    </script>
+
+</form>

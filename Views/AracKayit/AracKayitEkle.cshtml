@@ -1,0 +1,57 @@
+﻿@using AracKiralama_MVC.Models.Entity
+@model AracKiralama_MVC.Models.Entity.Arac_Kayit
+@{
+    ViewBag.Title = "AracKayitEkle";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Plaka</label>
+        <input type="text" class="form-control" name="Plaka" placeholder="Maksimum 15 karakter giriniz" maxlength="11" Required=" " id="ab" style="width:160px" />
+        @Html.ValidationMessageFor(x => x.Plaka, "", new { @style = "color:red" })
+        <br />
+        <label>Marka</label>
+        <input type="text" class="form-control" name="Marka" maxlength="50" Required=" " style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Marka, "", new { @style = "color:red" })
+        <br />
+        <label>Model</label>
+        <input type="text" class="form-control" name="Model" maxlength="15" Required=" " style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Model, "", new { @style = "color:red" })
+        <br />
+        <label>Yıl</label>
+        <input type="text" class="form-control" name="Yil" onkeypress="return isNumberKey(event)" placeholder="Maksimum 4 karakter giriniz" maxlength="4" Required=" " style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Yil, "", new { @style = "color:red" })
+        <br />
+        <label>Renk</label>
+        <input type="text" class="form-control" name="Renk" Required=" " maxlength="10" style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Renk, "", new { @style = "color:red" })
+        <br />
+        <label>Yakıt</label>
+        <input type="text" class="form-control" name="Yakit" Required=" " maxlength="15" style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Yakit, "", new { @style = "color:red" })
+        <br />
+        <label>Günlük Kira Ücreti</label>
+        <input type="text" class="form-control" name="Gunluk_Kira_Ucreti" maxlength="15" Required=" " style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Gunluk_Kira_Ucreti, "", new { @style = "color:red" })
+        <br />
+        <label>Sigorta Bitiş Tarihi</label>
+        <input type="date" class="form-control" name="Sigorta_Bitis_Tarihi" onkeypress="return isNumberKey(event)" maxlength="20" placeholder="Maksimum 10 karakter giriniz" Required=" " style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Sigorta_Bitis_Tarihi, "", new { @style = "color:red" })
+        <br />
+        <label>Muayne Bitiş Tarihi</label>
+        <input type="date" class="form-control" name="Muayne_Bitis_Tarihi" onkeypress="return isNumberKey(event)" maxlength="20" placeholder="Maksimum 10 karakter giriniz" Required=" " style="width:160px"/>
+        @Html.ValidationMessageFor(x => x.Muayne_Bitis_Tarihi, "", new { @style = "color:red" })
+        <br />
+    </div>
+    <div style="margin-top:25px">
+        <button class="btn btn-success">Yeni Araç Ekle</button>
+    </div>
+    <script>function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }</script>
+
+</form>

@@ -1,0 +1,49 @@
+﻿@using AracKiralama_MVC.Models.Entity
+@model AracKiralama_MVC.Models.Entity.Personel_Ekle
+@{
+    ViewBag.Title = "PersonelEkle_";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>TC</label>
+        <input type="text" class="form-control" name="TC" onkeypress="return isNumberKey(event)" placeholder="Maksimum 11 karakter giriniz" maxlength="11" Required=" " style="width:160px;" />
+        <br />
+        <label>Ad Soyad</label>
+        <input type="text" class="form-control" name="AdSoyad" maxlength="30" Required=" " style="width:160px;" />
+        <br />
+        <label>Telefon</label>
+        <input type="text" class="form-control" name="Telefon" maxlength="15" onkeypress="return isNumberKey(event)" Required=" " style="width:160px;" />
+        <br />
+        <label>Adres</label>
+        <input type="text" class="form-control" name="Adres" maxlength="50" Required=" " style="width:160px;" />
+        <br />
+        <label>Mail</label>
+        <input type="email" class="form-control" name="Mail" maxlength="30" Required=" " style="width:160px;" />
+        <br />
+        <label>Doğum Tarihi</label>
+        <input type="date" class="form-control" name="DogumTarihi" maxlength="10" Required=" " style="width:160px;" />
+        <br />
+        <label>Doğum Yeri</label>
+        <input type="text" class="form-control" name="DogumYeri" maxlength="20" Required=" " style="width:160px;" />
+        <br />
+        <label>Yetki Türü</label>
+        <input type="text" class="form-control" name="Yetki_Turu" Required=" " maxlength="" style="width:160px;" />
+        <br />
+        <label>Kullanıcı ID</label>
+        <input type="text" class="form-control" name="Kullanıcı_ID" Required=" " style="width:160px;" />
+        <br />
+    </div>
+    <div style="margin-top:25px">
+        <button class="btn btn-success">Yeni Sözleşme Ekle</button>
+    </div>
+    <script>function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }</script>
+   
+
+</form>

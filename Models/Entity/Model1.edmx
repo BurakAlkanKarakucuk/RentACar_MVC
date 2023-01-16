@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AracKiralamaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Arac_Kayit">
+          <Key>
+            <PropertyRef Name="Arac_ID" />
+          </Key>
+          <Property Name="Arac_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plaka" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Yil" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Renk" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Yakit" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Gunluk_Kira_Ucreti" Type="money" Nullable="false" />
+          <Property Name="Sigorta_Bitis_Tarihi" Type="date" Nullable="false" />
+          <Property Name="Muayne_Bitis_Tarihi" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici_Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Muhasebe">
+          <Key>
+            <PropertyRef Name="Muhasebe_ID" />
+          </Key>
+          <Property Name="Muhasebe_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Personel_ID" Type="int" Nullable="false" />
+          <Property Name="Toplam_Gelir" Type="money" Nullable="false" />
+          <Property Name="Calısan_Gider" Type="money" Nullable="false" />
+          <Property Name="Arac_Gider" Type="money" Nullable="false" />
+          <Property Name="Sirket_Gider" Type="money" Nullable="false" />
+          <Property Name="Toplam_Gider" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Musteri_Ekle">
+          <Key>
+            <PropertyRef Name="Musteri_ID" />
+          </Key>
+          <Property Name="Musteri_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TC" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="DogumTarihi" Type="date" Nullable="false" />
+          <Property Name="DogumYeri" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EhliyetNo" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="AlisTarihi" Type="date" Nullable="false" />
+          <Property Name="AlisYeri" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="EhGecerlilikTarihi" Type="date" Nullable="false" />
+          <Property Name="KrediKartNo" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="GecerlilikTarihi" Type="date" Nullable="false" />
+          <Property Name="CVV" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personel_Ekle">
+          <Key>
+            <PropertyRef Name="Personel_ID" />
+          </Key>
+          <Property Name="Personel_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TC" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="DogumTarihi" Type="date" Nullable="false" />
+          <Property Name="DogumYeri" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Yetki_Turu" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Kullanıcı_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sozlesme_Ekle">
+          <Key>
+            <PropertyRef Name="Sozlesme_ID" />
+          </Key>
+          <Property Name="Sozlesme_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Musteri_ID" Type="int" Nullable="false" />
+          <Property Name="Arac_ID" Type="int" Nullable="false" />
+          <Property Name="Odenecek_Fiyat" Type="money" Nullable="false" />
+          <Property Name="Alis_Tarihi" Type="date" Nullable="false" />
+          <Property Name="VerisTarihi" Type="date" Nullable="false" />
+          <Property Name="Personel_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Muhasebe_Personel_Ekle">
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="1" />
+          <End Role="Muhasebe" Type="Self.Muhasebe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Principal>
+            <Dependent Role="Muhasebe">
+              <PropertyRef Name="Personel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Ekle_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Personel_Ekle">
+              <PropertyRef Name="Kullanıcı_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Ekle_Personel_Ekle">
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="1" />
+          <End Role="Personel_Ekle1" Type="Self.Personel_Ekle" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Personel_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Principal>
+            <Dependent Role="Personel_Ekle1">
+              <PropertyRef Name="Personel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sozlesme_Ekle_Arac_Kayit">
+          <End Role="Arac_Kayit" Type="Self.Arac_Kayit" Multiplicity="1" />
+          <End Role="Sozlesme_Ekle" Type="Self.Sozlesme_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac_Kayit">
+              <PropertyRef Name="Arac_ID" />
+            </Principal>
+            <Dependent Role="Sozlesme_Ekle">
+              <PropertyRef Name="Arac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sozlesme_Ekle_Musteri_Ekle">
+          <End Role="Musteri_Ekle" Type="Self.Musteri_Ekle" Multiplicity="1" />
+          <End Role="Sozlesme_Ekle" Type="Self.Sozlesme_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri_Ekle">
+              <PropertyRef Name="Musteri_ID" />
+            </Principal>
+            <Dependent Role="Sozlesme_Ekle">
+              <PropertyRef Name="Musteri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sozlesme_Ekle_Personel_Ekle">
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="1" />
+          <End Role="Sozlesme_Ekle" Type="Self.Sozlesme_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Principal>
+            <Dependent Role="Sozlesme_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="AracKiralamaModelStoreContainer">
+          <EntitySet Name="Arac_Kayit" EntityType="Self.Arac_Kayit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Muhasebe" EntityType="Self.Muhasebe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musteri_Ekle" EntityType="Self.Musteri_Ekle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel_Ekle" EntityType="Self.Personel_Ekle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sozlesme_Ekle" EntityType="Self.Sozlesme_Ekle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Muhasebe_Personel_Ekle" Association="Self.FK_Muhasebe_Personel_Ekle">
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+            <End Role="Muhasebe" EntitySet="Muhasebe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Ekle_Kullanici" Association="Self.FK_Personel_Ekle_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Ekle_Personel_Ekle" Association="Self.FK_Personel_Ekle_Personel_Ekle">
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+            <End Role="Personel_Ekle1" EntitySet="Personel_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sozlesme_Ekle_Arac_Kayit" Association="Self.FK_Sozlesme_Ekle_Arac_Kayit">
+            <End Role="Arac_Kayit" EntitySet="Arac_Kayit" />
+            <End Role="Sozlesme_Ekle" EntitySet="Sozlesme_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sozlesme_Ekle_Musteri_Ekle" Association="Self.FK_Sozlesme_Ekle_Musteri_Ekle">
+            <End Role="Musteri_Ekle" EntitySet="Musteri_Ekle" />
+            <End Role="Sozlesme_Ekle" EntitySet="Sozlesme_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sozlesme_Ekle_Personel_Ekle" Association="Self.FK_Sozlesme_Ekle_Personel_Ekle">
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+            <End Role="Sozlesme_Ekle" EntitySet="Sozlesme_Ekle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AracKiralamaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Arac_Kayit">
+          <Key>
+            <PropertyRef Name="Arac_ID" />
+          </Key>
+          <Property Name="Arac_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plaka" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Yil" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Renk" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Yakit" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gunluk_Kira_Ucreti" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Sigorta_Bitis_Tarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Muayne_Bitis_Tarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Sozlesme_Ekle" Relationship="Self.FK_Sozlesme_Ekle_Arac_Kayit" FromRole="Arac_Kayit" ToRole="Sozlesme_Ekle" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici_Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Personel_Ekle" Relationship="Self.FK_Personel_Ekle_Kullanici" FromRole="Kullanici" ToRole="Personel_Ekle" />
+        </EntityType>
+        <EntityType Name="Muhasebe">
+          <Key>
+            <PropertyRef Name="Muhasebe_ID" />
+          </Key>
+          <Property Name="Muhasebe_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Personel_ID" Type="Int32" Nullable="false" />
+          <Property Name="Toplam_Gelir" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Calısan_Gider" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Arac_Gider" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Sirket_Gider" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Toplam_Gider" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Personel_Ekle" Relationship="Self.FK_Muhasebe_Personel_Ekle" FromRole="Muhasebe" ToRole="Personel_Ekle" />
+        </EntityType>
+        <EntityType Name="Musteri_Ekle">
+          <Key>
+            <PropertyRef Name="Musteri_ID" />
+          </Key>
+          <Property Name="Musteri_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DogumTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DogumYeri" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EhliyetNo" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AlisTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AlisYeri" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EhGecerlilikTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="KrediKartNo" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="GecerlilikTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CVV" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sozlesme_Ekle" Relationship="Self.FK_Sozlesme_Ekle_Musteri_Ekle" FromRole="Musteri_Ekle" ToRole="Sozlesme_Ekle" />
+        </EntityType>
+        <EntityType Name="Personel_Ekle">
+          <Key>
+            <PropertyRef Name="Personel_ID" />
+          </Key>
+          <Property Name="Personel_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DogumTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DogumYeri" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Yetki_Turu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kullanıcı_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_Personel_Ekle_Kullanici" FromRole="Personel_Ekle" ToRole="Kullanici" />
+          <NavigationProperty Name="Muhasebe" Relationship="Self.FK_Muhasebe_Personel_Ekle" FromRole="Personel_Ekle" ToRole="Muhasebe" />
+          <NavigationProperty Name="Personel_Ekle1" Relationship="Self.FK_Personel_Ekle_Personel_Ekle" FromRole="Personel_Ekle" ToRole="Personel_Ekle1" />
+          <NavigationProperty Name="Personel_Ekle2" Relationship="Self.FK_Personel_Ekle_Personel_Ekle" FromRole="Personel_Ekle1" ToRole="Personel_Ekle" />
+          <NavigationProperty Name="Sozlesme_Ekle" Relationship="Self.FK_Sozlesme_Ekle_Personel_Ekle" FromRole="Personel_Ekle" ToRole="Sozlesme_Ekle" />
+        </EntityType>
+        <EntityType Name="Sozlesme_Ekle">
+          <Key>
+            <PropertyRef Name="Sozlesme_ID" />
+          </Key>
+          <Property Name="Sozlesme_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Musteri_ID" Type="Int32" Nullable="false" />
+          <Property Name="Arac_ID" Type="Int32" Nullable="false" />
+          <Property Name="Odenecek_Fiyat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Alis_Tarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VerisTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Personel_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac_Kayit" Relationship="Self.FK_Sozlesme_Ekle_Arac_Kayit" FromRole="Sozlesme_Ekle" ToRole="Arac_Kayit" />
+          <NavigationProperty Name="Musteri_Ekle" Relationship="Self.FK_Sozlesme_Ekle_Musteri_Ekle" FromRole="Sozlesme_Ekle" ToRole="Musteri_Ekle" />
+          <NavigationProperty Name="Personel_Ekle" Relationship="Self.FK_Sozlesme_Ekle_Personel_Ekle" FromRole="Sozlesme_Ekle" ToRole="Personel_Ekle" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Sozlesme_Ekle_Arac_Kayit">
+          <End Role="Arac_Kayit" Type="Self.Arac_Kayit" Multiplicity="1" />
+          <End Role="Sozlesme_Ekle" Type="Self.Sozlesme_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac_Kayit">
+              <PropertyRef Name="Arac_ID" />
+            </Principal>
+            <Dependent Role="Sozlesme_Ekle">
+              <PropertyRef Name="Arac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Ekle_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Personel_Ekle">
+              <PropertyRef Name="Kullanıcı_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Muhasebe_Personel_Ekle">
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="1" />
+          <End Role="Muhasebe" Type="Self.Muhasebe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Principal>
+            <Dependent Role="Muhasebe">
+              <PropertyRef Name="Personel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sozlesme_Ekle_Musteri_Ekle">
+          <End Role="Musteri_Ekle" Type="Self.Musteri_Ekle" Multiplicity="1" />
+          <End Role="Sozlesme_Ekle" Type="Self.Sozlesme_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri_Ekle">
+              <PropertyRef Name="Musteri_ID" />
+            </Principal>
+            <Dependent Role="Sozlesme_Ekle">
+              <PropertyRef Name="Musteri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Ekle_Personel_Ekle">
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="1" />
+          <End Role="Personel_Ekle1" Type="Self.Personel_Ekle" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Personel_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Principal>
+            <Dependent Role="Personel_Ekle1">
+              <PropertyRef Name="Personel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sozlesme_Ekle_Personel_Ekle">
+          <End Role="Personel_Ekle" Type="Self.Personel_Ekle" Multiplicity="1" />
+          <End Role="Sozlesme_Ekle" Type="Self.Sozlesme_Ekle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Principal>
+            <Dependent Role="Sozlesme_Ekle">
+              <PropertyRef Name="Personel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AracKiralamaEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arac_Kayit" EntityType="Self.Arac_Kayit" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+          <EntitySet Name="Muhasebe" EntityType="Self.Muhasebe" />
+          <EntitySet Name="Musteri_Ekle" EntityType="Self.Musteri_Ekle" />
+          <EntitySet Name="Personel_Ekle" EntityType="Self.Personel_Ekle" />
+          <EntitySet Name="Sozlesme_Ekle" EntityType="Self.Sozlesme_Ekle" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Sozlesme_Ekle_Arac_Kayit" Association="Self.FK_Sozlesme_Ekle_Arac_Kayit">
+            <End Role="Arac_Kayit" EntitySet="Arac_Kayit" />
+            <End Role="Sozlesme_Ekle" EntitySet="Sozlesme_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Ekle_Kullanici" Association="Self.FK_Personel_Ekle_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Muhasebe_Personel_Ekle" Association="Self.FK_Muhasebe_Personel_Ekle">
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+            <End Role="Muhasebe" EntitySet="Muhasebe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sozlesme_Ekle_Musteri_Ekle" Association="Self.FK_Sozlesme_Ekle_Musteri_Ekle">
+            <End Role="Musteri_Ekle" EntitySet="Musteri_Ekle" />
+            <End Role="Sozlesme_Ekle" EntitySet="Sozlesme_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Ekle_Personel_Ekle" Association="Self.FK_Personel_Ekle_Personel_Ekle">
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+            <End Role="Personel_Ekle1" EntitySet="Personel_Ekle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sozlesme_Ekle_Personel_Ekle" Association="Self.FK_Sozlesme_Ekle_Personel_Ekle">
+            <End Role="Personel_Ekle" EntitySet="Personel_Ekle" />
+            <End Role="Sozlesme_Ekle" EntitySet="Sozlesme_Ekle" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(AracKiralamaModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(AracKiralamaModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AracKiralamaModelStoreContainer" CdmEntityContainer="AracKiralamaEntities3">
+          <EntitySetMapping Name="Arac_Kayit">
+            <EntityTypeMapping TypeName="AracKiralamaModel.Arac_Kayit">
+              <MappingFragment StoreEntitySet="Arac_Kayit">
+                <ScalarProperty Name="Arac_ID" ColumnName="Arac_ID" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Yil" ColumnName="Yil" />
+                <ScalarProperty Name="Renk" ColumnName="Renk" />
+                <ScalarProperty Name="Yakit" ColumnName="Yakit" />
+                <ScalarProperty Name="Gunluk_Kira_Ucreti" ColumnName="Gunluk_Kira_Ucreti" />
+                <ScalarProperty Name="Sigorta_Bitis_Tarihi" ColumnName="Sigorta_Bitis_Tarihi" />
+                <ScalarProperty Name="Muayne_Bitis_Tarihi" ColumnName="Muayne_Bitis_Tarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="AracKiralamaModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici_Ad" ColumnName="Kullanici_Ad" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Muhasebe">
+            <EntityTypeMapping TypeName="AracKiralamaModel.Muhasebe">
+              <MappingFragment StoreEntitySet="Muhasebe">
+                <ScalarProperty Name="Muhasebe_ID" ColumnName="Muhasebe_ID" />
+                <ScalarProperty Name="Personel_ID" ColumnName="Personel_ID" />
+                <ScalarProperty Name="Toplam_Gelir" ColumnName="Toplam_Gelir" />
+                <ScalarProperty Name="Calısan_Gider" ColumnName="Calısan_Gider" />
+                <ScalarProperty Name="Arac_Gider" ColumnName="Arac_Gider" />
+                <ScalarProperty Name="Sirket_Gider" ColumnName="Sirket_Gider" />
+                <ScalarProperty Name="Toplam_Gider" ColumnName="Toplam_Gider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musteri_Ekle">
+            <EntityTypeMapping TypeName="AracKiralamaModel.Musteri_Ekle">
+              <MappingFragment StoreEntitySet="Musteri_Ekle">
+                <ScalarProperty Name="Musteri_ID" ColumnName="Musteri_ID" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+                <ScalarProperty Name="EhliyetNo" ColumnName="EhliyetNo" />
+                <ScalarProperty Name="AlisTarihi" ColumnName="AlisTarihi" />
+                <ScalarProperty Name="AlisYeri" ColumnName="AlisYeri" />
+                <ScalarProperty Name="EhGecerlilikTarihi" ColumnName="EhGecerlilikTarihi" />
+                <ScalarProperty Name="KrediKartNo" ColumnName="KrediKartNo" />
+                <ScalarProperty Name="GecerlilikTarihi" ColumnName="GecerlilikTarihi" />
+                <ScalarProperty Name="CVV" ColumnName="CVV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personel_Ekle">
+            <EntityTypeMapping TypeName="AracKiralamaModel.Personel_Ekle">
+              <MappingFragment StoreEntitySet="Personel_Ekle">
+                <ScalarProperty Name="Personel_ID" ColumnName="Personel_ID" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+                <ScalarProperty Name="Yetki_Turu" ColumnName="Yetki_Turu" />
+                <ScalarProperty Name="Kullanıcı_ID" ColumnName="Kullanıcı_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sozlesme_Ekle">
+            <EntityTypeMapping TypeName="AracKiralamaModel.Sozlesme_Ekle">
+              <MappingFragment StoreEntitySet="Sozlesme_Ekle">
+                <ScalarProperty Name="Sozlesme_ID" ColumnName="Sozlesme_ID" />
+                <ScalarProperty Name="Musteri_ID" ColumnName="Musteri_ID" />
+                <ScalarProperty Name="Arac_ID" ColumnName="Arac_ID" />
+                <ScalarProperty Name="Odenecek_Fiyat" ColumnName="Odenecek_Fiyat" />
+                <ScalarProperty Name="Alis_Tarihi" ColumnName="Alis_Tarihi" />
+                <ScalarProperty Name="VerisTarihi" ColumnName="VerisTarihi" />
+                <ScalarProperty Name="Personel_ID" ColumnName="Personel_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AracKiralamaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="AracKiralamaModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="AracKiralamaModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="AracKiralamaModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="AracKiralamaModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AracKiralamaModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="AracKiralamaModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AracKiralamaModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="AracKiralamaModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="AracKiralamaModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

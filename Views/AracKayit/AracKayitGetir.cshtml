@@ -1,0 +1,47 @@
+﻿@model AracKiralama_MVC.Models.Entity.Arac_Kayit
+@{
+    ViewBag.Title = "AracKayitGetir";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+<!-- AracKayit ismi AracKayitController'da Controller''dan önceki kısımdan geliyor -->
+@using (Html.BeginForm("Guncelle", "AracKayit", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.Plaka)
+        @Html.TextBoxFor(k => k.Plaka, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Marka)
+        @Html.TextBoxFor(k => k.Marka, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Model)
+        @Html.TextBoxFor(k => k.Model, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Yil)
+        @Html.TextBoxFor(k => k.Yil, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Renk)
+        @Html.TextBoxFor(k => k.Renk, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Yakit)
+        @Html.TextBoxFor(k => k.Yakit, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Gunluk_Kira_Ucreti)
+        @Html.TextBoxFor(k => k.Gunluk_Kira_Ucreti, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Sigorta_Bitis_Tarihi)
+        @Html.TextBoxFor(k => k.Sigorta_Bitis_Tarihi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Muayne_Bitis_Tarihi)
+        @Html.TextBoxFor(k => k.Muayne_Bitis_Tarihi, new { @class = "form-control" })
+        <br />
+        <div>
+            <button class="btn btn-success">Araç Bilgileri Güncelle</button>
+        </div>
+
+    </div>
+    <div class="form-groupp">
+        @Html.LabelFor(k => k.Arac_ID, new { @id = "a" })
+        @Html.TextBoxFor(k => k.Arac_ID, new { @class = "form-control", @id = "a" })
+        <br />
+    </div>
+}

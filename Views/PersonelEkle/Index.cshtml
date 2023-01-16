@@ -1,0 +1,50 @@
+﻿@using AracKiralama_MVC.Models.Entity
+
+
+@model List<Personel_Ekle>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+
+<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+    <!-- Export to PDF , Excel ve Listeleme -->
+    <thead>
+        <tr>
+            <th>Personel ID</th>
+            <th>TC</th>
+            <th>Ad Soyad</th>
+            <th>Telefon</th>
+            <th>Adres</th>
+            <th>Mail</th>
+            <th>Doğum Tarihi</th>
+            <th>Doğum Yeri</th>
+            <th>Yetki Türü</th>
+            <th>Kullanıcı ID</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Personel_ID</td>
+                <td>@item.TC</td>
+                <td>@item.AdSoyad</td>
+                <td>@item.Telefon</td>
+                <td>@item.Adres</td>
+                <td>@item.Mail</td>
+                <td>@item.DogumTarihi</td>
+                <td>@item.DogumYeri</td>
+                <td>@item.Yetki_Turu</td>
+                <td>@item.Kullanıcı_ID</td>
+                <td><a href="~/PersonelEkle/PersonelGetir_/@item.Personel_ID" class="btn btn-success">Güncelle</a></td>
+                <td><a href="~/PersonelEkle/Sil/@item.Personel_ID" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div style="margin-top:25px">
+    <button style="width: 150px; height: 30px;" class="btn btn-success"><a style="color:white; font-size:15px;" href="~/PersonelEkle/PersonelEkle_">Yeni Personel Ekle</a></button><div />

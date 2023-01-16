@@ -1,0 +1,61 @@
+﻿@using AracKiralama_MVC.Models.Entity
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .b {
+            
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            height:100%;
+            background-image: url(/araclar/giris1.jpg);
+            position:absolute;
+            margin-top:0px;
+            background-position:center;
+            background-size:cover;
+            width:100%;
+
+
+        }
+            .b #c {
+                margin: 300px;
+            }
+            .btn{
+                box-shadow:0px 0px 10px 5px red;
+                background-color:black;
+                
+                
+            }
+            .btn a{
+                color:white;
+                letter-spacing:1px;
+                text-decoration:none;
+                padding:5px 5px 5px 5px;
+                cursor:pointer;
+
+            }
+            .btn:hover{
+                background-color:green;
+                
+            }
+          
+    </style>
+</head>
+<body style="margin:0; padding:0;">
+    
+    <div class="b">
+        <div style="text-align: center; align-items: center; align-content: center; justify-content: center;" id="c">
+            <button class="btn btn-toolbar"><a href="~/Kullanici/kullaniciGiris">Giriş İçin Tıklayınız</a></button>
+        </div>
+    </div>
+</body>
+
+</html>

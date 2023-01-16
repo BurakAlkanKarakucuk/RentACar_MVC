@@ -1,0 +1,50 @@
+﻿@model AracKiralama_MVC.Models.Entity.Sozlesme_Ekle
+@{
+    ViewBag.Title = "SozlesmeGetir";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+<!-- Sozlesme ismi SozlesmeController'da Controller''dan önceki kısımdan geliyor -->
+@using (Html.BeginForm("Guncelle", "Sozlesme", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.Sozlesme_ID)
+        @Html.TextBoxFor(k => k.Sozlesme_ID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Musteri_Ekle.TC)
+        @Html.TextBoxFor(k => k.Musteri_Ekle.TC, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Arac_Kayit.Plaka)
+        @Html.TextBoxFor(k => k.Arac_Kayit.Plaka, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Arac_Kayit.Gunluk_Kira_Ucreti)
+        @Html.TextBoxFor(k => k.Arac_Kayit.Gunluk_Kira_Ucreti, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Alis_Tarihi)
+        @Html.TextBoxFor(k => k.Alis_Tarihi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.VerisTarihi)
+        @Html.TextBoxFor(k => k.VerisTarihi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Odenecek_Fiyat)
+        @Html.TextBoxFor(k => k.Odenecek_Fiyat, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Personel_ID)
+        @Html.TextBoxFor(k => k.Personel_ID, new { @class = "form-control" })
+        <br />
+        <div>
+            <button class="btn btn-success">Sözleşme Bilgileri Güncelle</button>
+        </div>
+
+    </div>
+    <div class="form-groupp">
+        @Html.LabelFor(k => k.Sozlesme_ID, new { @id = "B" })
+        @Html.TextBoxFor(k => k.Sozlesme_ID, new { @class = "form-control", @id = "B" })
+        <br />
+    </div>
+
+    <style>
+        .form-groupp #B {
+            visibility: hidden;
+        }
+    </style>
+}

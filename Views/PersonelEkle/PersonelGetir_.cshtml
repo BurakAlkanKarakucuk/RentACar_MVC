@@ -1,0 +1,50 @@
+﻿@model AracKiralama_MVC.Models.Entity.Personel_Ekle
+@{
+    ViewBag.Title = "PersonelGetir_";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+<!-- AracKayit ismi AracKayitController'da Controller''dan önceki kısımdan geliyor -->
+@using (Html.BeginForm("Guncelle", "PersonelEkle", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.Personel_ID)
+        @Html.TextBoxFor(k => k.Personel_ID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.TC)
+        @Html.TextBoxFor(k => k.TC, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.AdSoyad)
+        @Html.TextBoxFor(k => k.AdSoyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Telefon)
+        @Html.TextBoxFor(k => k.Telefon, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Adres)
+        @Html.TextBoxFor(k => k.Adres, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Mail)
+        @Html.TextBoxFor(k => k.Mail, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.DogumTarihi)
+        @Html.TextBoxFor(k => k.DogumTarihi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.DogumYeri)
+        @Html.TextBoxFor(k => k.DogumYeri, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Yetki_Turu)
+        @Html.TextBoxFor(k => k.Yetki_Turu, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Kullanıcı_ID)
+        @Html.TextBoxFor(k => k.Kullanıcı_ID, new { @class = "form-control" })
+        <br />
+        <div>
+            <button class="btn btn-success">Personel Bilgileri Güncelle</button>
+        </div>
+
+    </div>
+    <div class="form-groupp">
+        @Html.LabelFor(k => k.Personel_ID, new { @id = "a" })
+        @Html.TextBoxFor(k => k.Personel_ID, new { @class = "form-control", @id = "a" })
+        <br />
+    </div>
+}

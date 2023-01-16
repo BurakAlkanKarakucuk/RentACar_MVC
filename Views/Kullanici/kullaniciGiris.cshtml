@@ -1,0 +1,91 @@
+﻿@using AracKiralama_MVC.Models.Entity
+@model AracKiralama_MVC.Models.Entity.Kullanici
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>kullaniciGiris</title>
+    <style>
+        .main {
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            height: 100%;
+            position: absolute;
+            margin-top: 0px;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            background-image: url(/araclar/giris1.jpg);
+            margin: 0;
+            padding: 0;
+
+        }
+            .main .a {
+               
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                position:fixed;
+                margin-top:250px;
+                margin-left:500px;
+                letter-spacing:1px;
+                color:black;
+                background-color:whitesmoke;
+                width:300px;
+                height:120px;
+                border-radius:10px;
+                border-collapse:collapse;
+                overflow:hidden;
+                padding:10px;
+                font-weight:bold;
+                
+            }
+        .btn {
+            box-shadow: 0px 0px 20px 2px black;
+            background-color: gray;
+            height:30px;
+            width:55px;
+            margin-left:120px;
+            color:white;
+        }
+           
+
+            .btn:hover {
+                background-color: green;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body style="margin: 0; padding: 0;">
+    <div>
+        <form class="form-group" method="post">
+            <div class="main">
+                <div class="a">
+                    <label>Kullanıcı : </label>
+                    <input type="text" class="form-control" name="Kullanici_Ad" placeholder="Kullanıcı adınızı giriniz" maxlength="30" Required=" " style="width:200px" />
+                    @Html.ValidationMessageFor(x => x.Kullanici_Ad, "", new { @style = "color:red" })
+
+                    <br />
+                    <br />
+                    
+                    <label>Şifre : </label>
+                    <input type="text" class="form-control" name="Sifre" placeholder="Şifre giriniz" maxlength="30" Required=" " style="width:200px; margin-left:35px;" />
+                    @Html.ValidationMessageFor(x => x.Sifre, "", new { @style = "color:red" })
+
+                    <br />
+                    <div style="margin-top:25px" class="c">
+                        <button class="btn btn-success">Giriş</button>
+                    </div>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</body>
+</html>

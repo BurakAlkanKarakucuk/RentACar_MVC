@@ -1,0 +1,84 @@
+﻿@using AracKiralama_MVC.Models.Entity
+@model AracKiralama_MVC.Models.Entity.Musteri_Ekle
+@{
+    ViewBag.Title = "MusteriEkle";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+<h4 class="text-capitalize text-danger">
+    @ViewBag.Message
+</h4>
+<form class="form-group" method="post">
+    <div>
+        <label>TC</label>
+        <input type="text" class="form-control" name="TC" onkeypress="return isNumberKey(event)" placeholder="Maksimum 11 karakter giriniz" maxlength="11" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.TC, "", new { @style = "color:red" })
+        <br />
+        <label>Ad Soyad</label>
+        <input type="text" class="form-control" name="AdSoyad" maxlength="50" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.AdSoyad, "", new { @style = "color:red" })
+        <br />
+        <label>Telefon</label>
+        <input type="text" class="form-control" name="Telefon" onkeypress="return isNumberKey(event)" maxlength="15" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.Telefon, "", new { @style = "color:red" })
+        <br />
+        <label>Adres</label>
+        <input type="text" class="form-control" name="Adres" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.Adres, "", new { @style = "color:red" })
+        <br />
+        <label>Mail</label>
+        <input type="email" class="form-control" name="Mail" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.Mail, "", new { @style = "color:red" })
+        <br />
+        <label>Doğum Tarihi</label>
+        <input type="date" class="form-control" name="DogumTarihi" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.DogumTarihi, "", new { @style = "color:red" })
+        <br />
+        <label>Doğum Yeri</label>
+        <input type="text" class="form-control" name="DogumYeri" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.DogumYeri, "", new { @style = "color:red" })
+        <br />
+        <label>Ehliyet No</label>
+        <input type="text" class="form-control" name="EhliyetNo" onkeypress="return isNumberKey(event)" maxlength="5" placeholder="Maksimum 5 karakter giriniz" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.EhliyetNo, "", new { @style = "color:red" })
+        <br />
+        <label>Ehliyet Alış Tarihi</label>
+        <input type="date" class="form-control" name="AlisTarihi" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.AlisTarihi, "", new { @style = "color:red" })
+        <br />
+        <label>Ehliyet Alış Yeri</label>
+        <input type="text" class="form-control" name="AlisYeri" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.AlisYeri, "", new { @style = "color:red" })
+        <br />
+        <label>Ehliyet Geçerlilik Tarihi</label>
+        <input type="date" class="form-control" name="EhGecerlilikTarihi" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.EhGecerlilikTarihi, "", new { @style = "color:red" })
+        <br />
+        <label>Kredi Kart No</label>
+        <input type="text" class="form-control" name="KrediKartNo" onkeypress="return isNumberKey(event)" maxlength="19" size="4" placeholder="* * * * - * * * * - * * * * - * * * * " Required=" " style="width:160px">
+        @Html.ValidationMessageFor(x => x.KrediKartNo, "", new { @style = "color:red" })
+        <br />
+        <label>Geçerlilik Tarihi</label>
+        <input type="date" class="form-control" name="GecerlilikTarihi" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.GecerlilikTarihi, "", new { @style = "color:red" })
+        <br />
+        <label>CVV</label>
+        <input type="text" class="form-control" name="CVV" onkeypress="return isNumberKey(event)" placeholder="Maksimum 3 karakter giriniz" maxlength="3" Required=" " style="width:160px" />
+        @Html.ValidationMessageFor(x => x.CVV, "", new { @style = "color:red" })
+        <br />
+    </div>
+    <div style="margin-top:25px">
+        <button class="btn btn-success">Yeni Müşteri Ekle</button>
+    </div>
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+
+</form>
+
+
+

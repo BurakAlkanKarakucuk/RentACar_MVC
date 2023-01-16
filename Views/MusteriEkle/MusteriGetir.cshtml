@@ -1,0 +1,45 @@
+﻿@model AracKiralama_MVC.Models.Entity.Musteri_Ekle
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/OrtakLayout.cshtml";
+}
+@using (Html.BeginForm("Guncelle", "MusteriEkle", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.Telefon)
+        @Html.TextBoxFor(k => k.Telefon, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Adres)
+        @Html.TextBoxFor(k => k.Adres, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Mail)
+        @Html.TextBoxFor(k => k.Mail, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.KrediKartNo)
+        @Html.TextBoxFor(k => k.KrediKartNo, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.GecerlilikTarihi)
+        @Html.TextBoxFor(k => k.GecerlilikTarihi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.CVV)
+        @Html.TextBoxFor(k => k.CVV, new { @class = "form-control" })
+        <br />
+        <div>
+            <button class="btn btn-success">Müşteri Bilgileri Güncelle</button>
+        </div>
+
+    </div>
+    <div class="form-groupp">
+        @Html.LabelFor(k => k.Musteri_ID, new { @id = "a" })
+        @Html.TextBoxFor(k => k.Musteri_ID, new { @class = "form-control", @id = "a" })
+        <br />
+    </div>
+    
+    <style>
+        .form-groupp #a {
+            visibility: hidden;
+        }
+    </style>
+}
+
+
